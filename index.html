@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="phoneDecrese" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phoneCount" type="text" class="form-control text-center" value="1">
+                           <button id="phoneIncrese" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5 id="phonePrice">$1219</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5 id="totalPrice">$1,278</h5>
+                        <h5 id="taxAmount" >$0</h5>
+                        <h5 id="grandTotal">$1,278</h5>
                      </div>
                   </div>
                </div>
@@ -77,30 +77,68 @@
          </div>
       </div>
       <script>
-         // 1st system do it
-
-   //          document.getElementById("caseIncrase").addEventListener('click',function(){
-   //          const caseInput = document.getElementById("caseCount");
-   //          const caseTotal = parseInt(caseInput.value);
-   //          const caseNewCount = caseTotal + 1;
+         document.getElementById("caseIncrase").addEventListener('click',function(){
+          const caseInput = document.getElementById("caseCount");
+             const caseTotal = parseInt(caseInput.value);
+             const caseNewCount = caseTotal + 1;
             
-   //          caseInput.value = caseNewCount;
-   //          const caseAmount = caseNewCount*59;
-   //          document.getElementById("casePrice").innerText ="$" + caseAmount;
-   //       });
+             caseInput.value = caseNewCount;
+             const caseAmount = caseNewCount*59;
+             document.getElementById("casePrice").innerText ="$" + caseAmount;
+             calculateTotal ()
+          });
 
-   //       document.getElementById("caseDecrase").addEventListener('click',function(){
-   //          const caseInput = document.getElementById("caseCount");
-   //          const caseTotal = parseInt(caseInput.value);
-   //          const caseNewCount = caseTotal - 1;
-   //          caseInput.value = caseNewCount;
-   //          const caseAmount = caseNewCount *59;
+          document.getElementById("caseDecrase").addEventListener('click',function(){
+             const caseInput = document.getElementById("caseCount");
+             const caseTotal = parseInt(caseInput.value);
+             const caseNewCount = caseTotal - 1;
+          caseInput.value = caseNewCount;
+            const caseAmount = caseNewCount *59;
+            document.getElementById('casePrice').innerText = '$' + caseAmount;
 
-   //          document.getElementById('casePrice').innerText = '$' + caseAmount;
-   // });
+            calculateTotal ()
+    });
+         document.getElementById("phoneIncrese").addEventListener('click',function(){
+          const phoneInput = document.getElementById("phoneCount");
+             const phoneTotal = parseInt(phoneInput.value);
+             const phoneNewCount = phoneTotal + 1;            
+             phoneInput.value = phoneNewCount;
+             const phoneAmount = phoneNewCount*1219;
+             document.getElementById("phonePrice").innerText ="$" + phoneAmount;
+            
+             calculateTotal ()
+            });
 
-      </script>
-   </section>
+            document.getElementById("phoneDecrese").addEventListener('click',function(){
+            const phoneInput = document.getElementById("phoneCount");
+             const phoneTotal = parseInt(phoneInput.value);
+             const phoneNewCount = phoneTotal - 1;            
+             phoneInput.value = phoneNewCount;
+             const phoneAmount = phoneNewCount*1219;
+             document.getElementById("phonePrice").innerText ="$" + phoneAmount;
+           
+             calculateTotal ()
+            });
+            
+            //bottom part code 
+
+         function calculateTotal (){
+            const phoneInput = document.getElementById("phoneCount");
+            const phoneCount = parseInt (phoneInput.value);
+
+            const caseInput = document.getElementById("caseCount");
+            const caseCount = parseInt (caseInput.value);
+
+            const totalPrice = phoneCount * 1219 + caseCount * 59;
+            document.getElementById("totalPrice").innerText = "$" + totalPrice;
+
+            const tax = Math.round(totalPrice * 0.10);
+            document.getElementById("taxAmount").innerText = "$" + tax;
+
+            const grandTotal = totalPrice + tax;
+            document.getElementById("grandTotal").innerText = "$" + grandTotal;
+        }
+     </script>
+   </section> 
 </body>
-
 </html>

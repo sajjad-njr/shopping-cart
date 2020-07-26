@@ -53,3 +53,36 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+
+
+
+
+
+
+//   document.getElementById("caseIncrese").addEventListener ('click',function(){
+	//       handleProductionChange (true);
+	//    });
+	//    document.getElementById("caseDecrese").addEventListener ('click',function(){
+	//       handleProductionChange (false);
+	//    });
+
+	//    function handleProductionChange (isIncrease){
+
+	//        const caseInput = document.getElementById('caseCount');
+	//        const caseCount = parseInt (caseInput.value);
+
+	//        let caseNewCount = 0;
+	//        if (isIncrease == true){
+	//           caseNewCount = caseCount + 1;
+	//        }
+
+	//        if (isIncrease == false && caseCount > 0){
+	//           caseNewCount = caseCount - 1;
+	//        }
+
+	//        caseInput.value = caseNewCount ;
+	//        const caseAmount = caseNewCount * 59;
+
+	//        document.getElementById('casePrice').innerText = "$"+ caseAmount;
+
+	//       }        
